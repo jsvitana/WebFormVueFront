@@ -1,3 +1,6 @@
+let arr;
+
+
 var app = new Vue({
     el: '#test',
     data: {
@@ -7,9 +10,12 @@ var app = new Vue({
         fetch('https://api.myjson.com/bins/17mt8m')
         .then((resp) => resp.json()
         .then((data) => {
-            this.message = data.emails[1]
+            arr = data.emails;
+            this.message = data.emails[0]
             }))
     }
 })
 
- 
+function change() {
+    app.message.email = "this";
+}
